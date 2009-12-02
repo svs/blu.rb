@@ -53,4 +53,6 @@ get "/feed" do
   content.to_xml
 end
   
-
+post "/update_blog" do
+  `git submodule update`
+end
