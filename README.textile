@@ -1,0 +1,7 @@
+*blur - a minimal sinatra based blogging engine*
+
+blur was started this afternoon, and is incomplete. However, when it is done, it will offer the following:
+- Write your posts in a text editor of your choice.
+- Save them in the posts directory. If you save them with a .erb extension, they will use the site layout. Or else, simply write your own HTML for each page - perfect if you want each post to have its own layout
+- Commit to github. With the correct post-commit hook, voila - site updated
+

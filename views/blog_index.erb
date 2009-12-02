@@ -1,0 +1,9 @@
+Welcome to the prole's blog. The following posts exist.
+<ul>
+  <% @posts.keys.sort.reverse.each do |key| %>
+  <li>
+    <a href="blog/<%= @posts[key] %>"><%= @posts[key].gsub(".erb","") %></a>
+    [<%=key%>]
+  </li>
+  <% end %>
+</ul>
