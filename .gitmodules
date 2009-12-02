@@ -1,0 +1,3 @@
+[submodule "views/posts"]
+	path = views/posts
+	url = git://github.com/svs/blog
