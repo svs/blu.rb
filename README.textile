@@ -1,6 +1,6 @@
 *blu.rb - a minimal sinatra based blogging engine*
 
-blur was started this afternoon, and is incomplete. However, if you still wish to use it for a minimal blogging experience, use it thusly:
+blu.rb was started this afternoon, and is incomplete. However, if you still wish to use it for a minimal blogging experience, use it thusly:
 - Clone blurb.
 - Pull your github blog into the views/posts directory 
 - Add a post commit hook in your github repo to hit http://yourblurbserver.com/update_blog
