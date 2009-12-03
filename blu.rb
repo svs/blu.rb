@@ -1,11 +1,12 @@
 require 'rubygems'
 require 'sinatra'
 require 'erb'
+require 'cgi'
 require 'rss/maker'
 
 def entries
   @posts = {}
-  (Dir.entries("views/posts/").reject{|p| /[#~]/.match(p) != nil} - [".","..","layout.erb",".git"]).each do |post| 
+  (Dir.entries("views/posts/").reject{|p| /[#~]/.match(p) != nil} - [".","..","layout.erb",".git",".gitignore"]).each do |post| 
     @posts[File.atime("views/posts/#{post}")] = post
   end
   @posts
@@ -45,7 +46,7 @@ get "/feed" do
       i.title = entry
       port = request.env["SERVER_PORT"]
       host_root = "http://#{request.env["SERVER_NAME"]}" + (port == "80" ? "" : ":#{port}") 
-      i.link = host_root + "/blog/#{url_encode(entry)}"
+      i.link = host_root + "/blog/#{CGI::escape(entry)}"
       i.date = atime
     end
   end
