@@ -58,6 +58,6 @@ get '/update_blog' do
 end
 
 post '/update_blog' do
-  `cd views/posts;git pull`
+  `cd views/posts;git pull origin master`
   "blog updated"
 end
