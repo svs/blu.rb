@@ -1,7 +1,6 @@
 require 'rubygems'
 require 'sinatra'
 require 'erb'
-require 'cgi'
 require 'rss/maker'
 
 def entries
@@ -46,13 +45,19 @@ get "/feed" do
       i.title = entry
       port = request.env["SERVER_PORT"]
       host_root = "http://#{request.env["SERVER_NAME"]}" + (port == "80" ? "" : ":#{port}") 
-      i.link = host_root + "/blog/#{CGI.escape(entry)}"
+      i.link = host_root + "/blog/#{url_encode(entry)}"
       i.date = atime
     end
   end
   content.to_xml
 end
   
-post "/update_blog" do
-  `git submodule update`
+get '/update_blog' do
+  `cd views/posts;git pull`
+  "blog updated"
+end
+
+post '/update_blog' do
+  `cd views/posts;git pull`
+  "blog updated"
 end
