@@ -1,5 +1,6 @@
 require 'rubygems'
 require 'sinatra'
+require 'RedCloth'
 require 'erb'
 require 'cgi'
 require 'rss/maker'
@@ -17,10 +18,11 @@ get "/" do
 end
 
 get "/blog/:title" do
+  @output = RedCloth.new(File.read("views/posts/#{params[:title]}")).to_html
   if params[:title].index(".erb")
     erb :"posts/#{params[:title].gsub(".erb","")}"
   else
-    File.read("views/posts/#{params[:title]}")
+    @output
   end
 end
 
