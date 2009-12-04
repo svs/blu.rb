@@ -9,9 +9,8 @@ blu.rb was started this afternoon, and is incomplete. However, if you still wish
 - Commit to github.
 - Repeat last three steps daily for good blog health
 
-Comment support through disqus.com is trivial. Just slam it in your layout.
+Comment support through disqus.com is trivial. Just slam it in your layout. Textile support has been added.
 TODO:
-- Textile support
 - better layout choosing mechanism without the need for metadata - perhaps filename based.
 
 
