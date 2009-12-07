@@ -20,14 +20,17 @@ end
 get "/blog/:title" do
   @output = RedCloth.new(File.read("views/posts/#{params[:title]}")).to_html
   if params[:title].index(".erb")
-    erb :"posts/#{params[:title].gsub(".erb","")}"
+    t = params[:title].split(".")
+    if t.size == 3
+      layout = File.read("views/posts/_#{t[1]}.erb")
+    end
+    erb :"posts/#{params[:title].gsub(".erb","")}", :layout => layout
   else
     @output
   end
 end
 
 get "/blog" do
-  entries
   erb :blog_index
 end
 

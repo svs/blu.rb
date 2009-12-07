@@ -1,9 +1,7 @@
-Welcome to the prole's blog. The following posts exist.
-<ul>
-  <% @posts.keys.sort.reverse.each do |key| %>
-  <li>
-    <a href="blog/<%= @posts[key] %>"><%= @posts[key].gsub(".erb","") %></a>
-    [<%=key%>]
-  </li>
+
+<div class="entries">
+  <% entries.keys.sort.reverse.each do |key| %>
+    <a href="blog/<%= @posts[key] %>"><%= @posts[key].split(".")[0] %></a><br>
+    [<%=key%>]<br/>
   <% end %>
-</ul>
+</div>
