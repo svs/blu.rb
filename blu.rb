@@ -21,11 +21,13 @@ get "/blog/:title" do
   @output = RedCloth.new(File.read("views/posts/#{params[:title]}")).to_html
   if params[:title].index(".erb")
     t = params[:title].split(".")
+    @title = t[0]
     if t.size == 3
       layout = File.read("views/posts/_#{t[1]}.erb")
     end
     erb :"posts/#{params[:title].gsub(".erb","")}", :layout => layout
   else
+    @title = params[:title]
     @output
   end
 end
@@ -58,12 +60,12 @@ get "/feed" do
   content.to_xml
 end
   
-get '/update_blog' do
+get '/update_blog' do #manual update
   `cd views/posts;git pull`
   "blog updated"
 end
 
-post '/update_blog' do
+post '/update_blog' do # for github post-commit hook
   `cd views/posts;git pull origin master`
   "blog updated"
 end
