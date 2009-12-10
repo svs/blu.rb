@@ -2,6 +2,6 @@
 <div class="entries">
   <% entries.keys.sort.reverse.each do |key| %>
     <a href="blog/<%= @posts[key] %>"><%= @posts[key].split(".")[0] %></a><br>
-    [<%=key%>]<br/>
+    [<%=File.ctime("views/posts/#{@posts[key]}")%>]<br/>
   <% end %>
 </div>

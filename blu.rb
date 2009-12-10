@@ -30,6 +30,7 @@ get "/blog/:title" do
     if t.size == 3
       layout = File.read("views/posts/_#{t[1]}.erb")
     end
+    debugger
     @erb = erb File.read("views/posts/#{params[:title]}"), :layout => layout
     @output = RedCloth.new(@erb).to_html
     @output

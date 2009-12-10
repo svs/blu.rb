@@ -15,7 +15,7 @@
 	<a href="/blog">Blog</a>
       </div>
       <%= @output || yield %>
-<% if @output %>
+<% if request.path_info.match(/blog\/*/) %>
 <div id="disqus_thread"></div><script type="text/javascript" src="http://disqus.com/forums/prole/embed.js"></script><noscript><a href="http://disqus.com/forums/prole/?url=ref">View the discussion thread.</a></noscript><a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
 <% end %>
     </div>
