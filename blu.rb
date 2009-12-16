@@ -17,12 +17,6 @@ get "/" do
   redirect "/index.html"
 end
 
-get "/blog/images/:filename" do
-  filename = "views/posts/images/#{params[:filename]}"
-  raise Sinatra::NotFound unless File.exists?(filename)
-  File.read(filename) 
-end
-
 get "/blog/:title" do
   if params[:title].index(".erb")
     t = params[:title].split(".")
