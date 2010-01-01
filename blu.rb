@@ -14,7 +14,7 @@ def entries
 end
 
 get "/" do
-  redirect "/index.html"
+  erb :index
 end
 
 get "/blog/:title" do
@@ -39,7 +39,10 @@ end
 
 get "/feed" do
   #TODO recreate only on git post commit hook
+  File.read("/feed.xml")
+end
   
+def write_feed(request)
   version = "2.0" # ["0.9", "1.0", "2.0"]
   destination = "test_maker.xml" # local file to write
 
@@ -58,22 +61,21 @@ get "/feed" do
       i.date = atime
     end
   end
-  content.to_xml
+  File.open("feed.xml","w").write(content.to_xml)
 end
   
-def update_blog
+def update_blog(request)
   `cd views/posts;git pull`
-  `mkdir public/images` unless File.exists?("public/images")
-  `cp -r views/posts/images/* public/images/`
+  write_feed(request)
   "blog updated"
 end
 
 get '/update_blog' do #manual update
-  update_blog
+  update_blog(request)
 end
 
 post '/update_blog' do # for github post-commit hook
-  update_blog
+  update_blog(request)
 end
 
 helpers do 
