@@ -43,6 +43,7 @@ get "/feed" do
 end
   
 def write_feed(request)
+  debugger
   version = "2.0" # ["0.9", "1.0", "2.0"]
   destination = "test_maker.xml" # local file to write
 
@@ -61,7 +62,8 @@ def write_feed(request)
       i.date = atime
     end
   end
-  File.open("feed.xml","w").write(content.to_xml)
+  debugger
+  File.open("feed.xml","w"){|f| f.write(content.to_xml)}
 end
   
 def update_blog(request)
