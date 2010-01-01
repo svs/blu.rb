@@ -39,11 +39,10 @@ end
 
 get "/feed" do
   #TODO recreate only on git post commit hook
-  File.read("/feed.xml")
+  File.read("feed.xml")
 end
   
 def write_feed(request)
-  debugger
   version = "2.0" # ["0.9", "1.0", "2.0"]
   destination = "test_maker.xml" # local file to write
 
@@ -59,10 +58,10 @@ def write_feed(request)
       port = request.env["SERVER_PORT"]
       host_root = "http://#{request.env["SERVER_NAME"]}" + (port == "80" ? "" : ":#{port}") 
       i.link = host_root + "/blog/#{CGI::escape(entry)}"
+      i.description = File.read("views/posts/#{entry}")
       i.date = atime
     end
   end
-  debugger
   File.open("feed.xml","w"){|f| f.write(content.to_xml)}
 end
   

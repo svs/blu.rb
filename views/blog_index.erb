@@ -1,7 +1,8 @@
-
-<div class="entries">
+<div id="entries">
+  <ul style="">
   <% entries.keys.sort.reverse.each do |key| %>
-    <a href="blog/<%= @posts[key] %>"><%= @posts[key].split(".")[0] %></a><br>
-    [<%=File.ctime("views/posts/#{@posts[key]}")%>]<br/>
+    <li style="display: inline; margin: 5px">
+    <a href="blog/<%= CGI::escape(@posts[key]) %>"><%= @posts[key].split(".")[0] %></a>
+    </li>
   <% end %>
 </div>

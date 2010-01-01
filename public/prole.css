@@ -1,50 +1,102 @@
 body {
-  font-family: Verdana;
+  font-family: shitfuck;
   font-size: 18px;
   margin: 4px;
   padding: 0px;
 }
 
+a {
+  color: black;
+}
+
+a:hover {
+  text-decoration: underline;
+}
 #left-container {
   float: left;
-  width: 15%;
+  width: 10px;
 }
 
 #main-container {
   float: left;
-  width: 60%;
+  width: 74%;
   min-height: 600px;
-  margin-right: 5px;
+  text-align: justify;
 }
 
+#body {
+  padding: 20px;
+  min-height: 400px;
+  line-height: 1.5em;
+  margin-top: 10px;
+  background: white;
+  color: #444;
+}
+#body a {
+}
+#body a:hover {
+  background: #c40000;
+}
 #right-container {
   float: left;
   width: 22%;
-  background: url('kun.jpg');
-  min-height: 1000px;
+  margin-left: 35px;
+  position: relative;
+  top :-125px;
 }
 
-.entries a{
-  font-size: 300%;
-  font-weight: bold;
-  text-decoration: none;
+#header {
+  background: red;
+}
+
+h1 {
   font-family: Helvetica;
-  letter-spacing: -0.08em;
+  text-align: left;
+  letter-spacing: -0.07em;
+  font-size: 55px;
+  color: #222;
 }
-
 #header h1 {
-  text-transform: uppercase;
-  text-align: right;
   font-size: 80px;
-  font-weight: 700;
-  letter-spacing: -12px;
   margin: 0px;
+  font-weight: 400;
   margin-right: 35px;
 }
 
 #nav {
   text-transform: uppercase;
   font-weight: bold;
-  padding-left: 15px;
-  background: #aaa;
+  padding: 2px 15px;
+  text-align: left;
+  background: #c40000;
+  color: white;
+}
+
+#nav a {
+  text-decoration: none;
+  color: white;
+}
+
+#kun {
+  position: absolute;
+  top :4px;
+  right: 0px;
+  background: url(/kun.png) no-repeat;
+  z-index: 10;
+  width: 280px;
+  height: 125px;
+}
+
+#entries {
+  font-size: 24px;
+}
+
+#entries a {
+  text-decoration: none;
+  background: #f9f9f9;
+  margin: 5px;
+}
+#entries a:hover {
+  font-family: Baskerville;
+  background: #f00;
 }

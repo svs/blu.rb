@@ -4,18 +4,19 @@
     <link href="/prole.css" rel="stylesheet" type="text/css">
   </head>
   <body>
+      <div id="kun"></div>
+      <div id="header"/>
+        <h1><a style="color: black; text-decoration:none;" href="/">prole.in</a></h1>
+      </div>
+      <div id="nav"><a href="/blog">Blog</a> | <a href="/projects">Projects</a></div>
     <div id="left-container">
       &nbsp;
     </div>
     <div id="main-container">
-      <div id="header"/>
-        <h1><a style="color: black; text-decoration:none;" href="/">prole.in</a></h1>
-      </div>
-      <div id="nav">
-	<a href="/blog">Blog</a>
-      </div>
+      <div id="body" <%= request.path_info.match(/blog\//) ? 'style="background: white"' : '' %>>
       <%= @output || yield %>
-<% if request.path_info.match(/blog\/*/) %>
+      </div>
+<% if request.path_info.match(/blog\//) %>
 <div id="disqus_thread"></div><script type="text/javascript" src="http://disqus.com/forums/prole/embed.js"></script><noscript><a href="http://disqus.com/forums/prole/?url=ref">View the discussion thread.</a></noscript><a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
 <% end %>
     </div>
