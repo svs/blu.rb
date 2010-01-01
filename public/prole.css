@@ -47,6 +47,7 @@ a:hover {
 
 #header {
   background: red;
+  height: 100px;
 }
 
 h1 {
@@ -70,6 +71,7 @@ h1 {
   text-align: left;
   background: #c40000;
   color: white;
+  height: 21px;
 }
 
 #nav a {
