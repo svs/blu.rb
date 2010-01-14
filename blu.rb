@@ -7,8 +7,8 @@ require 'rss/maker'
 
 def entries
   @posts = {}
-  ((Dir.entries("views/posts/").reject{|e| /~$/.match(e)}.reject{|e| /^_/.match(e)}) - [".","..","layout.erb",".git",".gitignore", "images"]).each do |post|
-    @posts[File.mtime("views/posts/#{post}")] = post
+  ((Dir.entries("./views/posts/").reject{|e| e.match(/~$/)}) - [".","..","layout.erb",".git",".gitignore", "images", "layouts"]).each_with_index do |post, i|
+    @posts[File.mtime("views/posts/#{post}") + i] = post
   end
   @posts
 end
@@ -22,7 +22,7 @@ get "/blog/:title" do
     t = params[:title].split(".")
     @title = t[0]
     if t.size == 3
-      layout = File.read("views/posts/_#{t[1]}.erb")
+      layout = File.read("views/posts/layouts/_#{t[1]}.erb")
     end
     @erb = erb File.read("views/posts/#{params[:title]}"), :layout => layout
     @output = RedCloth.new(@erb).to_html

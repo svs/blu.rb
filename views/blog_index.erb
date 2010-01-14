@@ -1,8 +1,0 @@
-<div id="entries">
-  <ul style="">
-  <% entries.keys.sort.reverse.each do |key| %>
-    <li style="display: inline">
-    <a href="blog/<%= CGI::escape(@posts[key]) %>"><%= @posts[key].split(".")[0] %></a>
-    </li>
-  <% end %>
-</div>
