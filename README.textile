@@ -1,8 +1,9 @@
 *blu.rb - a minimal sinatra based blogging engine*
 
-blu.rb was started this afternoon, and is incomplete. However, if you still wish to use it for a minimal blogging experience, use it thusly:
+blu.rb is incomplete. However, if you still wish to use it for a minimal blogging experience, use it thusly:
+
 - Clone blurb.
-- Pull your github blog into the views/posts directory 
+- Pull your blog posts into the views/posts directory
 - Add a post commit hook in your github repo to hit http://yourblurbserver.com/update_blog
 - Write your posts in a text editor of your choice.
 - Save them in the posts directory. If you save them with a .erb extension, they will use the site layout. Or else, simply write your own HTML for each page - perfect if you want each post to have its own layout
@@ -10,7 +11,5 @@ blu.rb was started this afternoon, and is incomplete. However, if you still wish
 - Repeat last three steps daily for good blog health
 
 Comment support through disqus.com is trivial. Just slam it in your layout. Textile support has been added.
-TODO:
-- better layout choosing mechanism without the need for metadata - perhaps filename based.
 
 
