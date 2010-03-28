@@ -1,15 +1,21 @@
 *blu.rb - a minimal sinatra based blogging engine*
 
-blu.rb is incomplete. However, if you still wish to use it for a minimal blogging experience, use it thusly:
+*features*
+- write in markdown
+- arbitrary layout possible for individual posts
+- layouts in haml
+- arbitrary 'pages' such as about, contact, etc.
+- rss feed publisher
+- push to git to publish
 
-- Clone blurb.
-- Pull your blog posts into the views/posts directory
-- Add a post commit hook in your github repo to hit http://yourblurbserver.com/update_blog
-- Write your posts in a text editor of your choice.
-- Save them in the posts directory. If you save them with a .erb extension, they will use the site layout. Or else, simply write your own HTML for each page - perfect if you want each post to have its own layout
-- Commit to github.
-- Repeat last three steps daily for good blog health
+*getting started*
+# Clone blurb.
+# Add a post commit hook in your github repo to hit http://yourblurbserver.com/update_blog
+# Put your blog posts in markdown into the views/posts directory. The following rules are applied
+## filenames ending in .haml are given the default layout (views/layout.haml)
+## filenames with <post_title>.<layout_name>.haml will use the layout in views/layout/_<layout_name>.haml
+## all other filenames will be served as html files
 
-Comment support through disqus.com is trivial. Just slam it in your layout. Textile support has been added.
+Comment support through disqus.com is trivial to add. Please read disqus documentation
 
 
